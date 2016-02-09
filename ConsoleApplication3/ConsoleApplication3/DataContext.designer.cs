@@ -239,12 +239,6 @@ namespace ConsoleApplication3
     partial void DeleteUserStat(UserStat instance);
     #endregion
 		
-		public DataContextDataContext() : 
-				base(global::ConsoleApplication3.Properties.Settings.Default.HumCaseConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public DataContextDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

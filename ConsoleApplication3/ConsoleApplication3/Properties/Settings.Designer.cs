@@ -32,5 +32,15 @@ namespace ConsoleApplication3.Properties {
                 return ((string)(this["HumCaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sql2016;Initial Catalog=HumCase;Integrated Security=True")]
+        public string HumCaseConnectionString1 {
+            get {
+                return ((string)(this["HumCaseConnectionString1"]));
+            }
+        }
     }
 }

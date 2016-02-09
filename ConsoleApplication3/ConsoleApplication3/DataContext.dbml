@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HumCase" Class="DataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQL2016;Initial Catalog=HumCase;Integrated Security=True" SettingsObjectName="ConsoleApplication3.Properties.Settings" SettingsPropertyName="HumCaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.cases" Member="cases">
     <Type Name="case">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -61,6 +61,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContext.cs">
+      <DependentUpon>DataContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataContextPartial.cs" />
     <Compile Include="IndexMapping.cs" />
     <Compile Include="DataContext.designer.cs">
       <AutoGen>True</AutoGen>

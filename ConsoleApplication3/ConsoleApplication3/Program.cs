@@ -19,35 +19,45 @@ namespace ConsoleApplication3
         
         static void Main(string[] args)
         {
-            DataContextDataContext db = new DataContextDataContext();
-            var client = CreateElasticClient();
-           
-            CreateIndexForTable(client,db.case_histories);
-            //  CreateIndexForTable(client,db.events);
-            CreateIndexForTable(client,db.case_user_views);
-            CreateIndexForTable(client, db.case_comments);
-            CreateIndexForTable(client, db.time_registrations);
-            CreateIndexForTable(client, db.cases);
-            CreateIndexForTable(client, db.CaseLogs);
-            CreateIndexForTable(client, db.changelog_items);
-            CreateIndexForTable(client, db.files);
-            CreateIndexForTable(client, db.change_revisions);
-            CreateIndexForTable(client, db.change_revision_reviews);
-            CreateIndexForTable(client, db.builds);
-            CreateIndexForTable(client, db.milestone_cases);
-            CreateIndexForTable(client, db.case_transfers);
-            CreateIndexForTable(client, db.UserStats);
-            CreateIndexForTable(client, db.release_cases);
-            CreateIndexForTable(client, db.releases);
-            CreateIndexForTable(client, db.TaskLogs);
-            CreateIndexForTable(client, db.users);
-            CreateIndexForTable(client, db.invoices);
-            CreateIndexForTable(client, db.casesClientNets);
-            CreateIndexForTable(client, db.milestones);
-            CreateIndexForTable(client, db.projects);
-            CreateIndexForTable(client, db.user_role_links);
-            CreateIndexForTable(client, db.CaseStats);
-            CreateIndexForTable(client, db.Computers);
+            try
+            {
+                DataContextDataContext db = new DataContextDataContext();
+                
+                var client = CreateElasticClient();
+
+                CreateIndexForTable(client, db.case_histories);
+                //  CreateIndexForTable(client,db.events);
+                CreateIndexForTable(client, db.case_user_views);
+                CreateIndexForTable(client, db.case_comments);
+                CreateIndexForTable(client, db.time_registrations);
+                CreateIndexForTable(client, db.cases);
+                CreateIndexForTable(client, db.CaseLogs);
+                CreateIndexForTable(client, db.changelog_items);
+                CreateIndexForTable(client, db.files);
+                CreateIndexForTable(client, db.change_revisions);
+                CreateIndexForTable(client, db.change_revision_reviews);
+                CreateIndexForTable(client, db.builds);
+                CreateIndexForTable(client, db.milestone_cases);
+                CreateIndexForTable(client, db.case_transfers);
+                CreateIndexForTable(client, db.UserStats);
+                CreateIndexForTable(client, db.release_cases);
+                CreateIndexForTable(client, db.releases);
+                CreateIndexForTable(client, db.TaskLogs);
+                CreateIndexForTable(client, db.users);
+                CreateIndexForTable(client, db.invoices);
+                CreateIndexForTable(client, db.casesClientNets);
+                CreateIndexForTable(client, db.milestones);
+                CreateIndexForTable(client, db.projects);
+                CreateIndexForTable(client, db.user_role_links);
+                CreateIndexForTable(client, db.CaseStats);
+                CreateIndexForTable(client, db.Computers);
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
             
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("Done inserting");
