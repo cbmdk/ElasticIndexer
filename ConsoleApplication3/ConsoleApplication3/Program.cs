@@ -15,42 +15,47 @@ namespace ConsoleApplication3
     class Program
     {
         private const int BulkSize = 5000;
-        private const string DefaultIndex = "dialog";
+        private const string DefaultIndex = "cases";
         
         static void Main(string[] args)
         {
+            
             try
             {
                 DataContextDataContext db = new DataContextDataContext();
                 
                 var client = CreateElasticClient();
-
-                CreateIndexForTable(client, db.case_histories);
-                //  CreateIndexForTable(client,db.events);
-                CreateIndexForTable(client, db.case_user_views);
-                CreateIndexForTable(client, db.case_comments);
-                CreateIndexForTable(client, db.time_registrations);
+                //client.DeleteIndex("topbeat-*");
+                //client.DeleteIndex("packetbeat-*");
+                //client.DeleteIndex("filebeat-*");
+                //client.DeleteIndex("winbeat-*");
+                //client.DeleteIndex("dialog-*");
+                //CreateIndexForTable(client, db.case_histories);
+                ////  CreateIndexForTable(client,db.events);
+                //CreateIndexForTable(client, db.case_user_views);
+                //CreateIndexForTable(client, db.case_comments);
+                //CreateIndexForTable(client, db.time_registrations);
                 CreateIndexForTable(client, db.cases);
-                CreateIndexForTable(client, db.CaseLogs);
-                CreateIndexForTable(client, db.changelog_items);
-                CreateIndexForTable(client, db.files);
-                CreateIndexForTable(client, db.change_revisions);
-                CreateIndexForTable(client, db.change_revision_reviews);
-                CreateIndexForTable(client, db.builds);
-                CreateIndexForTable(client, db.milestone_cases);
-                CreateIndexForTable(client, db.case_transfers);
-                CreateIndexForTable(client, db.UserStats);
-                CreateIndexForTable(client, db.release_cases);
-                CreateIndexForTable(client, db.releases);
-                CreateIndexForTable(client, db.TaskLogs);
-                CreateIndexForTable(client, db.users);
-                CreateIndexForTable(client, db.invoices);
-                CreateIndexForTable(client, db.casesClientNets);
-                CreateIndexForTable(client, db.milestones);
-                CreateIndexForTable(client, db.projects);
-                CreateIndexForTable(client, db.user_role_links);
-                CreateIndexForTable(client, db.CaseStats);
-                CreateIndexForTable(client, db.Computers);
+                //CreateIndexForTable(client, db.CaseLogs);
+                //CreateIndexForTable(client, db.changelog_items);
+                //CreateIndexForTable(client, db.files);
+                //CreateIndexForTable(client, db.change_revisions);
+                //CreateIndexForTable(client, db.change_revision_reviews);
+                //CreateIndexForTable(client, db.builds);
+                //CreateIndexForTable(client, db.milestone_cases);
+                //CreateIndexForTable(client, db.case_transfers);
+                //CreateIndexForTable(client, db.UserStats);
+                //CreateIndexForTable(client, db.release_cases);
+                //CreateIndexForTable(client, db.releases);
+                //CreateIndexForTable(client, db.TaskLogs);
+                //CreateIndexForTable(client, db.users);
+                //CreateIndexForTable(client, db.invoices);
+                //CreateIndexForTable(client, db.casesClientNets);
+                //CreateIndexForTable(client, db.milestones);
+                //CreateIndexForTable(client, db.projects);
+                //CreateIndexForTable(client, db.user_role_links);
+                //CreateIndexForTable(client, db.CaseStats);
+                //CreateIndexForTable(client, db.Computers);
 
             }
             catch (Exception ex)
@@ -108,7 +113,12 @@ namespace ConsoleApplication3
             return new BulkDescriptor()
                 .IndexMany(table, (descriptor, thisTable) => descriptor.Document(thisTable));
         }
-        
+
+        private static void DeleteIndexes<T>(IElasticClient client) where T : class
+        {
+            
+        }
+
         private static void IndexTable<T>(IElasticClient client, List<T> table) where T : class
         {
             var bulkDescriptor = CreateBulkDescriptor(table);
