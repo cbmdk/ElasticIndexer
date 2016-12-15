@@ -15,7 +15,7 @@ namespace ConsoleApplication3
     class Program
     {
         private const int BulkSize = 5000;
-        private const string DefaultIndex = "cases";
+        private const string DefaultIndex = "nusearch";
         
         static void Main(string[] args)
         {
